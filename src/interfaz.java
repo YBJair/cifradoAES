@@ -13,12 +13,44 @@ public class interfaz extends Frame implements ActionListener{
 	private static String algoritmo;//variable para almacenar el tipo de algoritmo que vamos a utilizar
 	private static byte[] clave;
 	private static Key claveSecretaAES;
+	private Lavel lbl1, lbl2, lbl3, lbl4;
+	private Button btn1, btn2;
+	private TextField txt1, txt2, txt3, txt4;
 
     public interfaz(){
     	
     	algoritmo="AES";
 		clave=new byte[]{'M','E','J','O','R','C','L','A','V','E','S','E','C','R','E','T'};
-    	
+		setLayout(new FlowLayout());
+		
+		lvl1 = new Label("Mensaje");
+		lvl2 = new Label("Mensaje");
+		lvl3 = new Label("Mensaje cifrado");
+		lvl4 = new Label("Mensaje cifrado");
+		
+		add(lbl1);
+		add(lbl2);
+		add(lbl3);
+		add(lbl4);
+		
+		btn1 = new Button("Enviar");
+		btn2 = new Button("Enviar");
+		
+		add(btn1);
+		add(btn2);
+		
+		txt1 = new TextField("Escriba aqui su mensaje");
+		txt2 = new TextField("Escriba aqui su mensaje");
+		txt3 = new TextField("Cifrado");
+		txt4 = new Textfield("Cifrado");
+		
+		add(txt1);
+		add(txt2);
+		add(txt3);
+		add(txt4);
+		
+		
+		
     }
 
     //Poned aqui vuestros metodos.
