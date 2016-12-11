@@ -1,3 +1,5 @@
+package cifradoAES;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.security.Key; //para poder generar claves(Key key)
@@ -13,9 +15,9 @@ public class interfaz extends Frame implements ActionListener{
 	private static String algoritmo;//variable para almacenar el tipo de algoritmo que vamos a utilizar
 	private static byte[] clave;
 	private static Key claveSecretaAES;
-	private Lavel lbl1, lbl2, lbl3, lbl4;
-	private Button btn1, btn2;
-	private TextField txt1, txt2, txt3, txt4;
+	private Label lbl1, lbl2, lbl3;
+	private Button btn;
+	private TextField txt1, txt2, txt3;
 
     public interfaz(){
     	
@@ -23,15 +25,13 @@ public class interfaz extends Frame implements ActionListener{
 		clave=new byte[]{'M','E','J','O','R','C','L','A','V','E','S','E','C','R','E','T'};
 		setLayout(new FlowLayout());
 		
-		lbl1 = new Label("Mensaje");
-		lbl2 = new Label("Mensaje");
+		lbl1 = new Label("Envia");
+		lbl2 = new Label("Recibe");
 		lbl3 = new Label("Mensaje cifrado");
-		lbl4 = new Label("Clave");
 		
 		add(lbl1);
 		add(lbl2);
 		add(lbl3);
-		add(lbl4);
 		
 		btn = new Button("Enviar");
 		add(btn);
@@ -39,13 +39,13 @@ public class interfaz extends Frame implements ActionListener{
 		
 		txt1 = new TextField("Escriba aqui su mensaje");
 		txt2 = new TextField("Reciba aqui su mensaje");
+		txt2.setEditable(false);
 		txt3 = new TextField("Cifrado");
-		txt4 = new Textfield("Clave");
+		txt3.setEditable(false);
 		
 		add(txt1);
 		add(txt2);
 		add(txt3);
-		add(txt4);
 		
 		btn.addActionListener(this);
 		
@@ -113,12 +113,13 @@ public class interfaz extends Frame implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		String msg, msgCif;
 		
+		try{
 		msg = txt1.getText();
 		msgCif = this.encriptar(msg);
-		txt4.setText(claveSecretaAES);
 		msg = this.desencriptar(msgCif);
 		txt3.setText(msgCif);
 		txt2.setText(msg);
+		} catch(Exception e) { System.err.println("Pepe");}
 		
 		
 	}
