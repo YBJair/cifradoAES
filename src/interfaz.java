@@ -49,7 +49,13 @@ public class interfaz extends Frame implements ActionListener{
 		add(txt3);
 		add(txt4);
 		
+		btn1.addActionListener(this);
+		btn2.addActionListener(this);
 		
+		setTitle("AES messenger");
+		setSize(800,800);
+		
+		setVisible(true);
 		
     }
 
