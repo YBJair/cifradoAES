@@ -1,5 +1,3 @@
-package cifradoAES;
-
 import java.awt.*;
 import java.awt.event.*;
 import java.security.Key; //para poder generar claves(Key key)
@@ -8,7 +6,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;//para poder generar claves Secretas
 
 import static org.apache.commons.codec.binary.Base64.encodeBase64;
-import static org.apache.commons.codec.binary.Base64.decodeBase64;
+
 
 public class interfaz extends Frame implements ActionListener{
 	
@@ -23,18 +21,12 @@ public class interfaz extends Frame implements ActionListener{
     	
     	algoritmo="AES";
 		clave=new byte[]{'M','E','J','O','R','C','L','A','V','E','S','E','C','R','E','T'};
-		setLayout(new FlowLayout());
+		setLayout(new BorderLayout(3,3));
 		
-		lbl1 = new Label("Envia");
-		lbl2 = new Label("Recibe");
-		lbl3 = new Label("Mensaje cifrado");
-		
-		add(lbl1);
-		add(lbl2);
-		add(lbl3);
+
 		
 		btn = new Button("Enviar");
-		add(btn);
+		add(btn,BorderLayout.SOUTH);
 
 		
 		txt1 = new TextField("Escriba aqui su mensaje");
@@ -43,15 +35,15 @@ public class interfaz extends Frame implements ActionListener{
 		txt3 = new TextField("Cifrado");
 		txt3.setEditable(false);
 		
-		add(txt1);
-		add(txt2);
-		add(txt3);
+		add(txt1,BorderLayout.WEST);
+		add(txt2,BorderLayout.EAST);
+		add(txt3,BorderLayout.CENTER);
 		
 		btn.addActionListener(this);
 		
 		
 		setTitle("AES messenger");
-		setSize(800,800);
+		setSize(800,300);
 		
 		setVisible(true);
 		
