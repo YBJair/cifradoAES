@@ -23,34 +23,32 @@ public class interfaz extends Frame implements ActionListener{
 		clave=new byte[]{'M','E','J','O','R','C','L','A','V','E','S','E','C','R','E','T'};
 		setLayout(new FlowLayout());
 		
-		lvl1 = new Label("Mensaje");
-		lvl2 = new Label("Mensaje");
-		lvl3 = new Label("Mensaje cifrado");
-		lvl4 = new Label("Mensaje cifrado");
+		lbl1 = new Label("Mensaje");
+		lbl2 = new Label("Mensaje");
+		lbl3 = new Label("Mensaje cifrado");
+		lbl4 = new Label("Clave");
 		
 		add(lbl1);
 		add(lbl2);
 		add(lbl3);
 		add(lbl4);
 		
-		btn1 = new Button("Enviar");
-		btn2 = new Button("Enviar");
-		
-		add(btn1);
-		add(btn2);
+		btn = new Button("Enviar");
+		add(btn);
+
 		
 		txt1 = new TextField("Escriba aqui su mensaje");
-		txt2 = new TextField("Escriba aqui su mensaje");
+		txt2 = new TextField("Reciba aqui su mensaje");
 		txt3 = new TextField("Cifrado");
-		txt4 = new Textfield("Cifrado");
+		txt4 = new Textfield("Clave");
 		
 		add(txt1);
 		add(txt2);
 		add(txt3);
 		add(txt4);
 		
-		btn1.addActionListener(this);
-		btn2.addActionListener(this);
+		btn.addActionListener(this);
+		
 		
 		setTitle("AES messenger");
 		setSize(800,800);
@@ -113,7 +111,15 @@ public class interfaz extends Frame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+		String msg, msgCif;
+		
+		msg = txt1.getText();
+		msgCif = this.encriptar(msg);
+		txt4.setText(claveSecretaAES);
+		msg = this.desencriptar(msgCif);
+		txt3.setText(msgCif);
+		txt2.setText(msg);
+		
 		
 	}
 
